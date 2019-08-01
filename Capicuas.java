@@ -24,7 +24,7 @@ public class Capicuas {
             }
             catch (InputMismatchException exception)
             {
-                System.out.println("Integers only, please.");
+                System.out.println("Entero por favor...");
             }
             
         }
@@ -39,18 +39,19 @@ public class Capicuas {
         //si el numero que ingreso el usuario es capicuas automaticamente lo muestra al usuario
         if(num == numInv){
             isCapicuas = true;
-        }else{   
+        }else{
+            //ciclo while para encontrar el numero capicua y el numero de iteraciones
             while(!isCapicuas){
-                num = suma;
-                numInv = getInvertedNumber(num);
+                num = suma; //ahora num tendra asignado el valor de la suma
+                numInv = getInvertedNumber(num); //obtenemos el numero Invertido de num
                 
-                if(num == numInv){
-                    isCapicuas = true;
-                }else{
-                    suma = num + numInv;
+                if(num == numInv){//comparamos si es capicua
+                    isCapicuas = true; //es capicua y finalizamos el ciclo
+                }else{ //no es capicua
+                    suma = num + numInv; //Obtenemos la suma de num y numInv para la siguiente iteracion
                 }
                 
-                iteraciones++;
+                iteraciones++; //aumentamos el contador
 
             }
         }
@@ -61,9 +62,10 @@ public class Capicuas {
         
     }
     
+    //obtenemos el numero invertido 
     private static long getInvertedNumber(long num){
         long numInv = 0,residuo = 0;
-        //obtenemos el numero invertido 
+        
         while(num>0){
             residuo = num % 10;
             numInv = numInv*10+residuo;
